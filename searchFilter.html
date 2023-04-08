@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Filter Names</title>
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        text-transform: capitalize;
+        background-image: linear-gradient(to right, rgb(242, 127, 255), rgb(255, 242, 123));
+    }
+
+    h1 {
+        letter-spacing: 1px;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        color: #3e3e3e;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .main-container {
+        border: 2px solid white;
+        padding: 1rem;
+        width: 50%;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        border-radius: 5px;
+        box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.475);
+    }
+
+    #Search-input {
+        width: 50%;
+        padding: 1rem;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.208);
+
+    }
+
+    #Search-input:focus {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.44);
+
+    }
+
+    .list-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .main-container ul li {
+        list-style: none;
+        font-size: 1rem;
+        border: 1px solid white;
+        text-align: center;
+        padding: .5rem 2rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(58, 58, 58);
+    }
+
+    @media (max-width:700px) {
+        .main-container {
+            height: 1100px;
+            padding-bottom: 1rem;
+        }
+    }
+</style>
+
+<body>
+    <h1>Searchbar items filter </h1>
+    <div class="main-container">
+        <input type="text" name="" id="Search-input" placeholder="Search Here....">
+        <ul class="list-group">
+            <li class="list-group-item">html</li>
+            <li class="list-group-item">css</li>
+            <li class="list-group-item">java</li>
+            <li class="list-group-item">javascript</li>
+            <li class="list-group-item">mangodb</li>
+            <li class="list-group-item">express js</li>
+            <li class="list-group-item">node js</li>
+            <li class="list-group-item">next js</li>
+            <li class="list-group-item">sql</li>
+            <li class="list-group-item">angular</li>
+            <li class="list-group-item">react</li>
+            <li class="list-group-item">vue</li>
+            <li class="list-group-item">php</li>
+            <li class="list-group-item">phython</li>
+            <li class="list-group-item">c++</li>
+            <li class="list-group-item">c</li>
+            <li class="list-group-item">java</li>
+            <li class="list-group-item">kotline</li>
+            <li class="list-group-item">dart</li>
+            <li class="list-group-item">flutter</li>
+            <li class="list-group-item">bootstrap</li>
+            <li class="list-group-item">telwind</li>
+            <li class="list-group-item">sql</li>
+            <li class="list-group-item">my-sql</li>
+            <li class="list-group-item">jquary</li>
+            <li class="list-group-item">material</li>
+        </ul>
+    </div>
+    <script>
+        let searchbar = document.querySelector('#Search-input')
+        searchbar.addEventListener('input', fliterList)
+
+        function fliterList() {
+            const searchinputValue = document.querySelector('#Search-input')
+            const filter = searchinputValue.value.toLowerCase()
+            const listItems = document.querySelectorAll('.list-group-item')
+
+            listItems.forEach((item) => {
+                // console.log(item)
+                let text = item.textContent;
+                // console.log(text)
+                if (text.toLowerCase().includes(filter.toLowerCase())) {
+                    item.style.display = "block";
+                    // if item available then item show
+                }
+                else {
+                    // if item not available then item hide
+                    item.style.display = "none";
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
